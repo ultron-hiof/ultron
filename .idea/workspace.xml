@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="154fc366-8ea7-4071-affa-428d41c751fc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources_git/doggo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot/img.py" beforeDir="false" afterPath="$PROJECT_DIR$/plot/img.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -72,14 +69,23 @@
       </split-first>
       <split-second>
         <leaf>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/README.md">
               <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
                 <state split_layout="SPLIT">
                   <first_editor relative-caret-position="374">
-                    <caret line="149" column="3" lean-forward="true" selection-start-line="149" selection-start-column="3" selection-end-line="149" selection-end-column="3" />
+                    <caret line="149" column="3" selection-start-line="149" selection-start-column="3" selection-end-line="149" selection-end-column="3" />
                   </first_editor>
                   <second_editor />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/.gitignore">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="447">
+                  <caret line="44" column="19" selection-start-line="44" selection-start-column="19" selection-end-line="44" selection-end-column="19" />
                 </state>
               </provider>
             </entry>
@@ -101,7 +107,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/load/dataset.py" />
         <option value="$PROJECT_DIR$/load/rgb/dataset.py" />
         <option value="$PROJECT_DIR$/load/grayscale/dataset.py" />
@@ -109,6 +114,7 @@
         <option value="$PROJECT_DIR$/label/dataset.py" />
         <option value="$PROJECT_DIR$/plot/img.py" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -209,12 +215,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1582208839293</updated>
-      <workItem from="1582208840631" duration="9619000" />
+      <workItem from="1582208840631" duration="10020000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9619000" />
+    <option name="totallyTimeSpent" value="10020000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="26" y="23" width="1894" height="1057" extended-state="0" />
@@ -247,13 +253,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="820">
-          <caret line="41" column="3" lean-forward="true" selection-start-line="41" selection-start-column="3" selection-end-line="41" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/load/rgb/dataset.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -299,9 +298,16 @@
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="374">
-            <caret line="149" column="3" lean-forward="true" selection-start-line="149" selection-start-column="3" selection-end-line="149" selection-end-column="3" />
+            <caret line="149" column="3" selection-start-line="149" selection-start-column="3" selection-end-line="149" selection-end-column="3" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="447">
+          <caret line="44" column="19" selection-start-line="44" selection-start-column="19" selection-end-line="44" selection-end-column="19" />
         </state>
       </provider>
     </entry>

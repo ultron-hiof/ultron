@@ -42,3 +42,4 @@ dmypy.json
 env
 plaidml-venv
 venv
+.idea\workspace.xml
