@@ -56,8 +56,8 @@ project
 ```python
 from ultron.load.img.dataset import load_x_dataset, load_y_dataset
 
-X = load_x_dataset(filepath)
-y = load_y_dataset(filepath)
+X = load_x_dataset(filepath='user/project/file')
+y = load_y_dataset(filepath='user/project/file')
 
 ```
 
@@ -71,7 +71,7 @@ from ultron.label.dataset import label_img_dataset
 categories = ['left', 'right', 'forward', 'backward', 'stop']
 
 # This function call will create features.pickle and labels.pickle
-label_img_dataset('user/dataset/', categories, 64, 'features', 'labels')
+label_img_dataset(datadir='user/dataset/', categories=categories, image_size=64, x_name='features', y_name='labels')
 
 ```
 
@@ -89,7 +89,8 @@ plot_model(history=history, metric='loss', name=NAME, save_location='models/mode
 
 ```
 ![acc of model](/resources_git/acc.png)
-Format: ![Alt Text](acc of model)
+
+This is an example of the graphes provided by the plot_model() function call.
 ## Authors
 - William Svea-Lochert
 - Fredrik Lauritzen
