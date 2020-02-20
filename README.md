@@ -7,6 +7,7 @@ Framework for making machine learning easier. This framework utilizes:
 * keras
 * matplotlib
 * OpenCV
+* tqdm
 * PlaidML (MacOS)
 * TensorFlow (Windows)
 
@@ -19,6 +20,7 @@ pip install keras
 pip install plaidml-keras plaidbench
 pip install -U matplotlib
 pip install opencv-python
+pip install tqdm
 ```
 
 ### Setup GPU training with PlaidML on MacOS
@@ -45,6 +47,7 @@ pip install keras
 pip install tensorflow
 pip install -U matplotlib
 pip install opencv-python
+pip install tqdm
 ```
 
 ## Examples
