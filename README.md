@@ -73,17 +73,6 @@ pip install tqdm
 
 ## Use cases
 
-### Load dataset
-**load_x_dataset()** and **load_y_dataset()** returns the specified dataset to X and the labels to y, ready to be used in your
-project
-```python
-from ultron.load.img.dataset import load_x_dataset, load_y_dataset
-
-X = load_x_dataset(filepath='user/project/file')
-y = load_y_dataset(filepath='user/project/file')
-
-```
-
 
 ### Label dataset
 **label_img_dataset()** is made so that you can easy convert a colored image dataset grayscale and resize it.
@@ -101,11 +90,29 @@ label_img_dataset(datadir='user/dataset/', categories=categories, image_size=64,
 ```
 
 
+
+
+### Load dataset
+**load_x_dataset()** and **load_y_dataset()** returns the specified dataset to X and the labels to y, ready to be used in your
+project
+```python
+from ultron.load.img.dataset import load_x_dataset, load_y_dataset
+
+X = load_x_dataset(filepath='user/project/file')
+y = load_y_dataset(filepath='user/project/file')
+
+```
+
+
+
+
+
 ### Plot training and validation accuarcy & loss
 **plot_model()** will plot the training and validation accuarcy and loss depending on what the user specifies.
 The function takes in the history object that is createt by the fit function provided by Keras for training a
 model. These function calls will create two images acc.png and loss.png in the given location. Image is 
 shown below code snippet.
+
 ```python
 from ultron.plot.graph import plot_model
 
@@ -117,8 +124,31 @@ plot_model(history=history, metric='loss', name=NAME, save_location='models/mode
 
 ```
 ![acc of model](/resources_git/acc.png)
-![alt text](graph showing model accuracy for training and vaildation)
 
+
+### Plot image from your dataset
+**show_linear_img()** is a function call for the users of a fully connected neural network users. 
+This function will show an image from your dataset. This is when your images has been converted to a
+linear image this means that the image is on one axis (1x…)
+
+```python
+from ultron.plot.img import show_linear_img
+
+# Plot the image in the given index and show it to the user
+show_linear_img(index=43, filepath='user/project/dataset.pickle', img_size=64)
+
+```
+**show_img()** is a function call for the users of a Conv2d model, which uses normal images. The function
+call will plot an image from your dataset with the given index.
+
+```python
+from ultron.plot.img import show_img
+
+# Plot the image in the given index and show it to the user
+show_img(index=43, filepath='user/project/dataset.pickle')
+
+```
+![acc of model](/resources_git/doggo.png)
 
 ## Authors
 - William Svea-Lochert
