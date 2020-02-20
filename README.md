@@ -144,7 +144,7 @@ call will plot an image from your dataset with the given index.
 ```python
 from ultron.plot.img import show_img
 
-# Plot the image in the given index and show it to the user
+# Plot the image in the given index from the dataset set by the user, and show it to the user
 show_img(index=43, filepath='user/project/dataset.pickle')
 
 ```
