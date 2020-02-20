@@ -61,7 +61,35 @@ y = load_y_dataset(filepath)
 
 ```
 
+def label_img_dataset() is made so that you can easy convert a colored image dataset grayscale and resize it.
+Be sure to name the categories the same as the folders where the images is located.
+```python
+from ultron.label.dataset import label_img_dataset
 
+
+# all images of left is located in the folder user/dataset/left and so on.
+categories = ['left', 'right', 'forward', 'backward', 'stop']
+
+# This function call will create features.pickle and labels.pickle
+label_img_dataset('user/dataset/', categories, 64, 'features', 'labels')
+
+```
+
+plot_model() will plot the training and validation accuarcy and loss depending on what the user specifies.
+The function takes in the history object that is createt by the fit function provided by Keras for training a
+model. These function calls will create two images acc.png and loss.png in the given location.
+```python
+from ultron.plot.graph import plot_model
+
+# placeholder (fit in the function call of training a model in keras)
+history = model.fit()
+
+plot_model(history=history, metric='acc', name=NAME, save_location='models/model_name/acc.png')
+plot_model(history=history, metric='loss', name=NAME, save_location='models/model_name/loss.png')
+
+```
+![acc of model](/resources_git/acc.png)
+Format: ![Alt Text](acc of model)
 ## Authors
 - William Svea-Lochert
 - Fredrik Lauritzen

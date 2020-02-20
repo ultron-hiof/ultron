@@ -1,3 +1,9 @@
+# ------------------------------------------------------- #
+# Author: William Svea-Lochert
+# Date written: 20.02.2020
+# Convert images to grayscale, resize them, label and
+# exports the dataset as .pickle files for later use.
+# ------------------------------------------------------- #
 import numpy as np
 import os
 import cv2
