@@ -47,6 +47,17 @@ pip install -U matplotlib
 pip install opencv-python
 ```
 
+## Examples
+load_x_dataset and load_y_dataset returns the specified dataset to X and the labels to y, ready to be used in your
+project
+```python
+from ultron.load.img.dataset import load_x_dataset, load_y_dataset
+
+X = load_x_dataset(filepath)
+y = load_y_dataset(filepath)
+
+```
+
 
 ## Authors
 - William Svea-Lochert
