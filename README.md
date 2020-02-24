@@ -33,7 +33,7 @@ Framework for making machine learning easier. This framework utilizes:
 * PlaidML (MacOS)
 * TensorFlow (Windows)
 
-## Installation of needed packages MacOS
+## Installation of needed packages
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) for installing needed packages.
 
@@ -45,7 +45,7 @@ pip install opencv-python
 pip install tqdm
 ```
 
-### Setup GPU training with PlaidML on MacOS
+### Setup GPU training with PlaidML
 Choose which accelerator you'd like to use (many computers, especially laptops, have multiple)
 In the terminal of your python project (venv) write:
 
@@ -58,18 +58,6 @@ Now try benchmarking MobileNet:
 plaidbench keras mobilenet
 ```
 
-
-
-## Installation of needed packages Windows
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install needed packages.
-
-```bash
-pip install keras
-pip install tensorflow
-pip install -U matplotlib
-pip install opencv-python
-pip install tqdm
-```
 
 ## Use cases
 
@@ -149,6 +137,42 @@ show_img(index=43, filepath='user/project/dataset.pickle')
 
 ```
 ![acc of model](/resources_git/doggo.png)
+
+# Models
+
+## Create Conv2D model
+
+**create_model()** is a function for create a Conv2D model, this function can take in multiple parameters or just one to
+create a model that the user can train for their use.
+
+Example where user specify only the input shape parameter.
+```python
+from ultron.model.conv import create_model
+from ultron.load.img.dataset import load_x_dataset, load_y_dataset
+
+X = load_x_dataset(filepath='user/project/file')
+y = load_y_dataset(filepath='user/project/file')
+
+# Creates a 'default' model with the input shape given by the user.
+# Default output is 1 category.
+model = create_model(shape=X.shape[1:])
+model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+model.summary()
+```
+
+Example where user specify all parameters.
+```python
+from ultron.model.conv import create_model
+from ultron.load.img.dataset import load_x_dataset, load_y_dataset
+
+X = load_x_dataset(filepath='user/project/file')
+y = load_y_dataset(filepath='user/project/file')
+
+# Creates the model with all parameters given by the user
+model = create_model(shape=X.shape[1:], conv_layers=2, layer_size=32, activation_layer='relu', dense_layers=1, dense_layer_size=512, output_classes=2, output_activation='softmax')
+model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+model.summary()
+```
 
 ## Authors
 - William Svea-Lochert
