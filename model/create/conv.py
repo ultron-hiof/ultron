@@ -1,3 +1,9 @@
+# ------------------------------------------------------- #
+# Author: William Svea-Lochert
+# Date written: 25.02.2020
+# Sets PlaidML as backend with Keras on top.
+# create a conv2d model
+# ------------------------------------------------------- #
 import os
 from termcolor import colored
 

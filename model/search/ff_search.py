@@ -1,3 +1,9 @@
+# ------------------------------------------------------- #
+# Author: William Svea-Lochert
+# Date written: 16.02.2020
+# Sets PlaidML as backend with Keras on top.
+# function to search for the best architecture for your model
+# ------------------------------------------------------- #
 import os
 from termcolor import colored
 import time

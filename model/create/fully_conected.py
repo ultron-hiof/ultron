@@ -1,3 +1,9 @@
+# ------------------------------------------------------- #
+# Author: William Svea-Lochert
+# Date written: 16.02.2020
+# Sets PlaidML as backend with Keras on top.
+# create a FF model
+# ------------------------------------------------------- #
 import os
 from termcolor import colored
 
@@ -13,7 +19,7 @@ def create_model(dense_layers=None, dense_layer_size=None, activation_layer=None
            [dense_layers, dense_layer_size, activation_layer,
             output_classes, output_activation]) and shape is not None:
 
-        model = create_model(dense_layers=2, dense_layer_size=512, dense_activation='relu', shape=shape,
+        model = create_model(dense_layers=2, dense_layer_size=512, activation_layer='relu', shape=shape,
                  output_classes=2, output_activation='softmax')
 
         return model
