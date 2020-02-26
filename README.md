@@ -115,9 +115,9 @@ y = load_y_dataset(filepath='user/project/file')
 
 ## Plotting images
 
-### Plot training and validation accuarcy & loss
-**plot_model()** will plot the training and validation accuarcy and loss depending on what the user specifies.
-The function takes in the history object that is createt by the fit function provided by Keras for training a
+### Plot training and validation accuracy & loss
+**plot_model()** will plot the training and validation accuracy and loss depending on what the user specifies.
+The function takes in the history object that is created by the fit function provided by Keras for training a
 model. These function calls will create two images acc.png and loss.png in the given location. Image is 
 shown below code snippet.
 
