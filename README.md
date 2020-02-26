@@ -61,7 +61,9 @@ plaidbench keras mobilenet
 ## Use cases
 
 ## Video to images
-**video_to_images()** This function will convert video files from specified folders to images to a new specified folders.  
+**video_to_images()** This function will convert video files from specified folders to images to a new specified folders.
+
+Example
 
 ## Creating and using your Dataset
 
@@ -210,6 +212,10 @@ model = create_model(shape=X.shape[1:], dense_layers=2, dense_layer_size=512, ac
 model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 model.summary()
 ```
+## Network search
+**network_search()** The usages for this function is to find the model that fits your project the best. 
+
+Example to network search.
 
 ## Authors
 - William Svea-Lochert
