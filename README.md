@@ -295,6 +295,31 @@ model_search(dense_layers=[1, 2, 3], layer_sizes=[32, 64, 128], activation_layer
 
 ```
 
+## retrain your model
+
+**train_model()** function call will load your previously saved model and train it with the given dataset specified by 
+the user for the amount of time specified. The function returns the history object given by the **fit()** function call
+so that the user can plot the training & validation accuracy & loss.
+
+```python
+from ultron.model.training.retrain_model import train_model
+from ultron.load.img.dataset import load_x_dataset, load_y_dataset
+from ultron.plot.graph import plot_model
+
+
+X = load_x_dataset(filepath='user/project/file')
+y = load_y_dataset(filepath='user/project/file')
+
+# This function call will train a model given by the user and return the 
+# history obj from the fit() function call
+history = train_model(X=X, y=y, epoches=100, val_split=0.3, model='user/location/model.model', 
+                      save_location='user/location/new_location/new_model')
+                      
+plot_model(history=history, metric='acc', name='NAME', save_location='models/model_name/acc.png')
+plot_model(history=history, metric='loss', name='NAME', save_location='models/model_name/loss.png')
+
+```
+
 ## Authors
 - William Svea-Lochert
 - Fredrik Lauritzen
