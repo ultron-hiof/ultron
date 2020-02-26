@@ -7,10 +7,10 @@ from keras.models import Sequential
 from keras.layers import Dense, Flatten
 
 
-def create_model(dense_layers=None, dense_layer_size=None, dense_activation=None, shape=None,
+def create_model(dense_layers=None, dense_layer_size=None, activation_layer=None, shape=None,
                  output_classes=None, output_activation=None):
     if all(x is None for x in
-           [dense_layers, dense_layer_size, dense_activation,
+           [dense_layers, dense_layer_size, activation_layer,
             output_classes, output_activation]) and shape is not None:
 
         model = create_model(dense_layers=2, dense_layer_size=512, dense_activation='relu', shape=shape,
@@ -26,10 +26,10 @@ def create_model(dense_layers=None, dense_layer_size=None, dense_activation=None
         model.add(Flatten()) # turns dataset to 1 x total_pixels
 
         # input layer
-        model.add(Dense(dense_layer_size, activation=dense_activation, input_shape=shape))
+        model.add(Dense(dense_layer_size, activation=activation_layer, input_shape=shape))
         # create dense layers
         for dense in range(dense_layers):
-            model.add(Dense(dense_layer_size, activation=dense_activation))
+            model.add(Dense(dense_layer_size, activation=activation_layer))
 
         # output layer
         model.add(Dense(output_classes, activation=output_activation))
