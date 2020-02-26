@@ -61,15 +61,28 @@ plaidbench keras mobilenet
 ## Use cases
 
 ## Video to images
-**video_to_images()** This function will convert video files from specified folders to images to a new specified folders.
+**video_to_images()** function call with take a folder structure that contais videos and convert the videos into images
+in their new respective folder. The function call takes a input path for where on your machine the videos are located, 
+an output path to where it will create a new folder three, an array containing all the folder names(categories) and the
+image size you want for the images.
 
-Example
+Example:
+
+```python
+from video_convertion.video import video_to_images
+
+video_to_images(input_path='/Users/dataset/location_of_multiple_folders',
+                output_path='/Users/dataset/output_folder',
+                folders=['Dog', 'Cat'], img_size=200)
+```
 
 ## Creating and using your Dataset
 
 ### Label dataset
 **label_img_dataset()** is made so that you can easy convert a colored image dataset grayscale and resize it.
 Be sure to name the categories the same as the folders where the images is located.
+
+Example:
 ```python
 from ultron.label.dataset import label_img_dataset
 
@@ -88,6 +101,8 @@ label_img_dataset(datadir='user/dataset/', categories=categories, image_size=64,
 ### Load dataset
 **load_x_dataset()** and **load_y_dataset()** returns the specified dataset to X and the labels to y, ready to be used in your
 project
+
+Example:
 ```python
 from ultron.load.img.dataset import load_x_dataset, load_y_dataset
 
@@ -106,6 +121,7 @@ The function takes in the history object that is createt by the fit function pro
 model. These function calls will create two images acc.png and loss.png in the given location. Image is 
 shown below code snippet.
 
+Example:
 ```python
 from ultron.plot.graph import plot_model
 
@@ -124,6 +140,7 @@ plot_model(history=history, metric='loss', name=NAME, save_location='models/mode
 This function will show an image from your dataset. This is when your images has been converted to a
 linear image this means that the image is on one axis (1x…)
 
+Example:
 ```python
 from ultron.plot.img import show_linear_img
 
@@ -134,6 +151,7 @@ show_linear_img(index=43, filepath='user/project/dataset.pickle', img_size=64)
 **show_img()** is a function call for the users of a Conv2d model, which uses normal images. The function
 call will plot an image from your dataset with the given index.
 
+Example:
 ```python
 from ultron.plot.img import show_img
 
@@ -150,7 +168,7 @@ show_img(index=43, filepath='user/project/dataset.pickle')
 **create_model()** is a function for create a Conv2D model, this function can take in multiple parameters or just one to
 create a model that the user can train for their use.
 
-Example where user specify only the input shape parameter.
+Example where user specify only the input shape parameter:
 ```python
 from ultron.model.conv import create_model
 from ultron.load.img.dataset import load_x_dataset, load_y_dataset
@@ -165,7 +183,7 @@ model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=
 model.summary()
 ```
 
-Example where user specify all parameters.
+Example where user specify all parameters:
 ```python
 from ultron.model.conv import create_model
 from ultron.load.img.dataset import load_x_dataset, load_y_dataset
@@ -184,7 +202,7 @@ model.summary()
 **create_model()** is a function for create a fully connected feed forward model, this function can take in multiple parameters or just one to
 create a model that the user can train for their use.
 
-Example where user specify only the input shape parameter.
+Example where user specify only the input shape parameter:
 ```python
 from ultron.model.fully_connected import create_model
 from ultron.load.img.dataset import load_x_dataset, load_y_dataset
@@ -199,7 +217,7 @@ model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=
 model.summary()
 ```
 
-Example where user specify all parameters.
+Example where user specify all parameters:
 ```python
 from ultron.model.fully_connected import create_model
 from ultron.load.img.dataset import load_x_dataset, load_y_dataset
@@ -213,9 +231,13 @@ model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=
 model.summary()
 ```
 ## Network search
-**network_search()** The usages for this function is to find the model that fits your project the best. 
+**network_search()** The usages for this function is to find the model that fits your project the best by training 
+multiple models and using the plot functionality of this framework to show you the results.
 
-Example to network search.
+Example to network search:
+```python
+
+```
 
 ## Authors
 - William Svea-Lochert
