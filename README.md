@@ -58,7 +58,7 @@ plaidbench keras mobilenet
 ```
 
 
-## Use cases
+# Use cases
 
 ## Video to images
 **video_to_images()** function call with take a folder structure that contais videos and convert the videos into images
