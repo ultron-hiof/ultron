@@ -314,7 +314,8 @@ y = load_y_dataset(filepath='user/project/file')
 # history obj from the fit() function call
 history = train_model(X=X, y=y, epoches=100, val_split=0.3, model='user/location/model.model', 
                       save_location='user/location/new_location/new_model')
-                      
+
+# plotting the training and validation loss & accuracy        
 plot_model(history=history, metric='acc', name='NAME', save_location='models/model_name/acc.png')
 plot_model(history=history, metric='loss', name='NAME', save_location='models/model_name/loss.png')
 
