@@ -32,7 +32,6 @@ def extract_frames_from_video(videoSource, output, imgSize, CLASS_CATEGORIES):
     cam = cv2.VideoCapture(videoSource)
 
     category = videoSource.split('-')[1]
-    classNum = CLASS_CATEGORIES.index(category)
     imageOutputPath = build_output_image_path(category, output)
     currentframe = 0
 
