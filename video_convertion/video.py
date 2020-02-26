@@ -3,6 +3,7 @@ import cv2
 import os
 import sys
 from datetime import datetime
+from termcolor import colored
 
 # videosSourcePath = ''
 # directoryName = ''
@@ -14,7 +15,8 @@ from datetime import datetime
 def read_dir_and_start_frame_extraction(path, output, img_size, folders):
     directory = os.fsencode(path)
 
-    print("Extracting frames from files found under: " + path)
+    text = "Extracting frames from files found under: " + path
+    print(colored(text, 'green'))
     for file in os.listdir(directory):
         filename = os.fsdecode(file)
         full_file_path = create_path(path, filename)
@@ -22,7 +24,7 @@ def read_dir_and_start_frame_extraction(path, output, img_size, folders):
         if filename.endswith(".h264") or filename.endswith(".mp4"):
             extract_frames_from_video(full_file_path, output, img_size, folders)
         elif os.path.isdir(full_file_path):
-            read_dir_and_start_frame_extraction(full_file_path)
+            read_dir_and_start_frame_extraction(full_file_path, output, img_size, folders)
 
 
 def extract_frames_from_video(videoSource, output, imgSize, CLASS_CATEGORIES):
@@ -91,7 +93,7 @@ def build_output_image_path(category, directoryName):
 
         # if not created, then raise error
     except OSError:
-        print('Error: Creating directory: ' + imageOutputPath)
+        print(colored('Error: Creating directory: ' + imageOutputPath, 'red'))
 
     return imageOutputPath
 
