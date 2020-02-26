@@ -4,7 +4,7 @@
 # plot images from given dataset
 # ------------------------------------------------------- #
 import matplotlib.pyplot as plt
-from load.img.dataset import load_x_dataset
+from dataset.load.img.dataset import load_x_dataset
 
 
 # Show an image from your dataset if the image 1x....
