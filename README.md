@@ -170,7 +170,7 @@ create a model that the user can train for their use.
 
 Example where user specify only the input shape parameter:
 ```python
-from ultron.model.conv import create_model
+from ultron.model.create.conv import create_model
 from ultron.load.img.dataset import load_x_dataset, load_y_dataset
 
 X = load_x_dataset(filepath='user/project/file')
@@ -185,7 +185,7 @@ model.summary()
 
 Example where user specify all parameters:
 ```python
-from ultron.model.conv import create_model
+from ultron.model.create.conv import create_model
 from ultron.load.img.dataset import load_x_dataset, load_y_dataset
 
 X = load_x_dataset(filepath='user/project/file')
@@ -204,7 +204,7 @@ create a model that the user can train for their use.
 
 Example where user specify only the input shape parameter:
 ```python
-from ultron.model.fully_connected import create_model
+from ultron.model.create.fully_connected import create_model
 from ultron.load.img.dataset import load_x_dataset, load_y_dataset
 
 X = load_x_dataset(filepath='user/project/file')
@@ -219,7 +219,7 @@ model.summary()
 
 Example where user specify all parameters:
 ```python
-from ultron.model.fully_connected import create_model
+from ultron.model.create.fully_connected import create_model
 from ultron.load.img.dataset import load_x_dataset, load_y_dataset
 
 X = load_x_dataset(filepath='user/project/file')
