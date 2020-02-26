@@ -61,9 +61,9 @@ plaidbench keras mobilenet
 # Use cases
 
 ## Video to images
-**video_to_images()** function call with take a folder structure that contais videos and convert the videos into images
+**video_to_images()** function call with take a folder structure that contains videos and convert the videos into images
 in their new respective folder. The function call takes a input path for where on your machine the videos are located, 
-an output path to where it will create a new folder three, an array containing all the folder names(categories) and the
+an output path to where it will create a new folder tree, an array containing all the folder names(categories) and the
 image size you want for the images.
 
 Example:
