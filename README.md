@@ -61,6 +61,7 @@ plaidbench keras mobilenet
 
 ## Use cases
 
+## Creating and using your Dataset
 
 ### Label dataset
 **label_img_dataset()** is made so that you can easy convert a colored image dataset grayscale and resize it.
@@ -93,7 +94,7 @@ y = load_y_dataset(filepath='user/project/file')
 
 
 
-
+## Plotting images
 
 ### Plot training and validation accuarcy & loss
 **plot_model()** will plot the training and validation accuarcy and loss depending on what the user specifies.
@@ -169,7 +170,41 @@ X = load_x_dataset(filepath='user/project/file')
 y = load_y_dataset(filepath='user/project/file')
 
 # Creates the model with all parameters given by the user
-model = create_model(shape=X.shape[1:], conv_layers=2, layer_size=32, activation_layer='relu', dense_layers=1, dense_layer_size=512, output_classes=2, output_activation='softmax')
+model = create_model(shape=X.shape[1:], conv_layers=2, conv_layer_size=32, activation_layer='relu', dense_layers=1, dense_layer_size=512, output_classes=2, output_activation='softmax')
+model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+model.summary()
+```
+
+## Create a fully connected feed forward model
+
+**create_model()** is a function for create a fully connected feed forward model, this function can take in multiple parameters or just one to
+create a model that the user can train for their use.
+
+Example where user specify only the input shape parameter.
+```python
+from ultron.model.fully_connected import create_model
+from ultron.load.img.dataset import load_x_dataset, load_y_dataset
+
+X = load_x_dataset(filepath='user/project/file')
+y = load_y_dataset(filepath='user/project/file')
+
+# Creates a 'default' model with the input shape given by the user.
+# Default output is 1 category.
+model = create_model(shape=X.shape[1:])
+model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+model.summary()
+```
+
+Example where user specify all parameters.
+```python
+from ultron.model.fully_connected import create_model
+from ultron.load.img.dataset import load_x_dataset, load_y_dataset
+
+X = load_x_dataset(filepath='user/project/file')
+y = load_y_dataset(filepath='user/project/file')
+
+# Creates the model with all parameters given by the user
+model = create_model(shape=X.shape[1:], dense_layers=2, dense_layer_size=512, activation_layer='relu', output_classes=2, output_activation='softmax')
 model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 model.summary()
 ```
