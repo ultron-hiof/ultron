@@ -60,6 +60,9 @@ plaidbench keras mobilenet
 
 ## Use cases
 
+## Video to images
+**video_to_images()** This function will convert video files from specified folders to images to a new specified folders.  
+
 ## Creating and using your Dataset
 
 ### Label dataset
