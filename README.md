@@ -231,11 +231,67 @@ model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=
 model.summary()
 ```
 ## Network search
-**network_search()** The usages for this function is to find the model that fits your project the best by training 
-multiple models and using the plot functionality of this framework to show you the results.
+### Conv2d model search
+**model_search()** The usages for this function is to find the model that fits your project the best by training 
+multiple models and using the plot functionality of this framework to show you the results. The graphs will be saved to multiple
+files in your project directory.
 
-Example to network search:
+
+```diff
+- You will need to have a dataset ready to be able to use the model search!
+```
+
+Example with dataset and shape:
 ```python
+from ultron.model.search.conv2d_search import model_search
+from ultron.load.img.dataset import load_x_dataset, load_y_dataset
+
+
+X = load_x_dataset(filepath='user/project/file')
+y = load_y_dataset(filepath='user/project/file')
+
+model_search(shape=X.shape[1:], X=X, y=y)
+```
+Example to network search with all parameters:
+```python
+from ultron.model.search.conv2d_search import model_search
+from ultron.load.img.dataset import load_x_dataset, load_y_dataset
+
+
+X = load_x_dataset(filepath='user/project/file')
+y = load_y_dataset(filepath='user/project/file')
+
+model_search(conv_layers=[1, 2, 3], layer_sizes=[32, 64, 128], activation_layer='relu', shape=X.shape[1:],
+                     dense_layers=[0, 1, 2], output_classes=2, output_activation='softmax', X=X, y=y)
+
+```
+
+### Fully Connected feed forward model search
+Example with dataset and shape:
+```python
+from ultron.model.search.ff_search import model_search
+from ultron.load.img.dataset import load_x_dataset, load_y_dataset
+
+
+X = load_x_dataset(filepath='user/project/file')
+y = load_y_dataset(filepath='user/project/file')
+
+model_search(shape=X.shape[1:], X=X, y=y)
+
+```
+
+
+Example to network search with all parameters:
+```python
+from ultron.model.search.ff_search import model_search
+from ultron.load.img.dataset import load_x_dataset, load_y_dataset
+
+
+X = load_x_dataset(filepath='user/project/file')
+y = load_y_dataset(filepath='user/project/file')
+
+model_search(dense_layers=[1, 2, 3], layer_sizes=[32, 64, 128], activation_layer='relu', shape=shape,
+                     output_classes=2, output_activation='softmax', X=X, y=y)
 
 ```
 
