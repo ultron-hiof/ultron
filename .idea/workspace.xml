@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="154fc366-8ea7-4071-affa-428d41c751fc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/fully_conected.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/fully_conected.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +15,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="163">
-                <caret line="179" column="80" selection-start-line="179" selection-start-column="80" selection-end-line="179" selection-end-column="80" />
+              <first_editor relative-caret-position="260">
+                <caret line="27" column="70" selection-start-line="27" selection-start-column="70" selection-end-line="27" selection-end-column="70" />
                 <folding>
                   <element signature="e#0#42#0" expanded="true" />
                   <element signature="e#0#42#0" expanded="true" />
@@ -263,7 +262,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2737000" />
+    <option name="totallyTimeSpent" value="3037000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="23" width="1920" height="1177" extended-state="6" />
@@ -376,8 +375,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="163">
-            <caret line="179" column="80" selection-start-line="179" selection-start-column="80" selection-end-line="179" selection-end-column="80" />
+          <first_editor relative-caret-position="260">
+            <caret line="27" column="70" selection-start-line="27" selection-start-column="70" selection-end-line="27" selection-end-column="70" />
             <folding>
               <element signature="e#0#42#0" expanded="true" />
               <element signature="e#0#42#0" expanded="true" />

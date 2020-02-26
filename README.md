@@ -26,7 +26,6 @@ The background for this project is because William is currently working with his
 
 ## Other frameworks Ultron is built on top of
 Framework for making machine learning easier. This framework utilizes:
-* keras
 * matplotlib
 * OpenCV
 * tqdm
