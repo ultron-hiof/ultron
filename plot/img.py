@@ -20,6 +20,8 @@ def show_linear_img(index, filepath, img_size):
 # plot an image from your dataset
 def show_img(index, filepath):
     x = load_x_dataset(filepath)
+
+    # Show image
     plt.imshow(x[index], cmap='gray')
     plt.show()
 

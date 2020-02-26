@@ -42,6 +42,7 @@ pip install plaidml-keras plaidbench
 pip install -U matplotlib
 pip install opencv-python
 pip install tqdm
+pip install termcolor
 ```
 
 ### Setup GPU training with PlaidML

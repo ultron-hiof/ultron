@@ -1,4 +1,5 @@
 import os
+from termcolor import colored
 
 os.environ["KERAS_BACKEND"] = "plaidml.keras.backend"
 
@@ -14,10 +15,10 @@ def create_model(conv_layers=None, conv_layer_size=None, activation_layer=None, 
             output_classes]) and shape is not None:
         model = create_model(conv_layers=2, conv_layer_size=32, activation_layer='relu', shape=shape, dense_layers=1,
                              dense_layer_size=512, output_classes=1, output_activation='softmax')
-
         return model
     elif shape is None:
-        print('You must specify a input shape, use: shape=')
+        error = colored('INPUT ERROR: You must specify a input shape, use: shape=', 'red')
+        print(error)
         return None
     else:
         # Model definition.
@@ -41,5 +42,5 @@ def create_model(conv_layers=None, conv_layer_size=None, activation_layer=None, 
 
         # Output player
         model.add(Dense(output_classes, activation=output_activation))
-
+        print(colored('Model created with ' + str(conv_layers) + ' Conv2D layers', 'green'))
         return model
