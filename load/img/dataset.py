@@ -11,6 +11,7 @@ def load_x_dataset(filepath):
     pickle_in = open(filepath, 'rb')
     x = pickle.load(pickle_in)
     x = x/255.0
+    print('X loaded.')
     return x
 
 
@@ -18,4 +19,5 @@ def load_y_dataset(filepath):
     pickle_in = open(filepath, 'rb')
     y = pickle.load(pickle_in)
     y = np.asarray(y)
+    print('y loaded.')
     return y
