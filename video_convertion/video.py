@@ -1,15 +1,8 @@
 # Importing all necessary libraries
 import cv2
 import os
-import sys
 from datetime import datetime
 from termcolor import colored
-
-# videosSourcePath = ''
-# directoryName = ''
-# imgSize = 0
-# CLASS_CATEGORIES = []
-
 
 # recurse over dirs, and extract frames from every video found
 def read_dir_and_start_frame_extraction(path, output, img_size, folders):
