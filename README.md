@@ -69,7 +69,7 @@ image size you want for the images.
 Example:
 
 ```python
-from video_convertion.video import video_to_images
+from ultron.dataset.video_convertion.video import video_to_images
 
 video_to_images(input_path='/Users/dataset/location_of_multiple_folders',
                 output_path='/Users/dataset/output_folder',
@@ -84,7 +84,7 @@ Be sure to name the categories the same as the folders where the images is locat
 
 Example:
 ```python
-from ultron.label.dataset import label_img_dataset
+from ultron.dataset.label.dataset import label_img_dataset
 
 
 # all images of left is located in the folder user/dataset/left and so on.
@@ -104,7 +104,7 @@ project
 
 Example:
 ```python
-from ultron.load.img.dataset import load_x_dataset, load_y_dataset
+from ultron.dataset.load.img.dataset import load_x_dataset, load_y_dataset
 
 X = load_x_dataset(filepath='user/project/file')
 y = load_y_dataset(filepath='user/project/file')
