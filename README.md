@@ -36,7 +36,6 @@ Framework for making machine learning easier. This framework utilizes:
 Use the package manager [pip](https://pip.pypa.io/en/stable/) for installing needed packages.
 
 ```bash
-pip install keras
 pip install plaidml-keras plaidbench
 pip install -U matplotlib
 pip install opencv-python
