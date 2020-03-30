@@ -39,6 +39,7 @@ Framework for making machine learning easier. This framework utilizes:
 * OpenCV
 * tqdm
 * PlaidML
+* Keras
 
 ## Installation of needed packages
 
@@ -55,6 +56,9 @@ pip install pickle
 ```
 
 ### Setup GPU training with PlaidML
+```diff
++ This is recomended if you have a dedicated GPU!
+```
 Choose which accelerator you'd like to use (many computers, especially laptops, have multiple)
 In the terminal of your python project (venv) write:
 
