@@ -1,5 +1,12 @@
 # Ultron
- Machine learning framework based on keras with the help of other tools. 
+ Ultron is a framework that is made to make machine learning easier to work with. Ultron is based on several other 
+ frameworks like Keras for the core machine learning tools, PlaidML to be able to train your network on any kind
+ of hardware, OpenCv for image processing, matplotlib for plotting your training validation and accuracy, Numpy and 
+ pickle of loading and exporting new datasets.
+ 
+ Ultron is a collection of tools that you as the user normally would have to write yourself, but with ultron 
+ the tools you need is at you fingertips. From creating you first machine learning model to retraining your models, 
+ confusion matrix's, image processing, creating image dataset's and so much more!
  
 The framework the group have in mind is made to make working with machine learning easier. 
 Where the framework we make will make the users save time. Where the library with the functions 
@@ -7,21 +14,23 @@ is premade, and the users do not have to make them beforehand.
 
 ## Aim of the project
 
-Usages of smart variable names
-Short down work times
-Low Barrier to Entry where users can choose the functionality they want.
-Make it easier to work with dataset
-Resize and greyscale
-Picture sequence
-Label dataset
-Creating networks
-Searching for networks 
-Use network in a basic way
+* Short down work times
+* Low Barrier to Entry where users can choose the functionality they want.
+* Make it easier to work with dataset
+* Resize and greyscale
+* Picture sequence
+* Label dataset
+* Creating networks
+* Searching for networks 
+* Use network in a basic way
 
 Background 
-The group consists of Fredrik Lauritzen a 2nd year informatics student and William Svea-Lochert a 3rd year informatics student. Both have an interest in machine learning and wants to know more about it.
+The group consists of Fredrik Lauritzen a 2nd year informatics student and William Svea-Lochert a 3rd year informatics 
+student. Both have an interest in machine learning and wants to know more about it.
 
-The background for this project is because William is currently working with his Bachelor thesis, where he is actively working machine learning and creating datasets. We wanted to make the process of working with machine learning easier, by having a framework that is a collection of some basic and some more advanced functionality.
+The background for this project is because William is currently working with his Bachelor thesis, where he is 
+actively working machine learning and creating datasets. We wanted to make the process of working with 
+machine learning easier, by having a framework that is a collection of some basic and some more advanced functionality.
 
 
 ## Other frameworks Ultron is built on top of
@@ -36,12 +45,13 @@ Framework for making machine learning easier. This framework utilizes:
 Use the package manager [pip](https://pip.pypa.io/en/stable/) for installing needed packages.
 
 ```bash
-pip install keras
 pip install plaidml-keras plaidbench
 pip install -U matplotlib
 pip install opencv-python
 pip install tqdm
 pip install termcolor
+pip install sty
+pip install pickle
 ```
 
 ### Setup GPU training with PlaidML
@@ -52,11 +62,14 @@ In the terminal of your python project (venv) write:
 plaidml-setup
 ```
 
+* Enable experimental mode
+* Select your graphics card
+
 Now try benchmarking MobileNet:
 ```bash
 plaidbench keras mobilenet
 ```
-
+* You are now good to go : ) 
 
 # Use cases
 
@@ -318,6 +331,41 @@ history = train_model(X=X, y=y, epoches=100, val_split=0.3, model='user/location
 # plotting the training and validation loss & accuracy        
 plot_model(history=history, metric='acc', name='NAME', save_location='models/model_name/acc.png')
 plot_model(history=history, metric='loss', name='NAME', save_location='models/model_name/loss.png')
+
+```
+
+## Test your model with testdata
+
+**validate_model()** runs two predictions on your model with the specified dataset given by 
+the user. The function prints a Confusion matrix and the loss and accuracy of the model on the given dataset.
+
+```python
+from ultron.model.training.retrain_model import train_model
+from ultron.load.img.dataset import load_x_dataset, load_y_dataset
+from ultron.plot.graph import plot_model
+from ultron.model.test_model.validate_model import predict
+
+
+X = load_x_dataset(filepath='user/project/file')
+y = load_y_dataset(filepath='user/project/file')
+
+# This function call will train a model given by the user and return the 
+# history obj from the fit() function call
+history = train_model(X=X, y=y, epoches=100, val_split=0.3, model='user/location/model.model', 
+                      save_location='user/location/new_location/new_model')
+
+# Datasets used for testing
+test_x = load_x_dataset(filepath='user/project/file')
+test_y = load_y_dataset(filepath='user/project/file')
+
+# The categories on the dataset, in the correct order form when they where created.
+categories = ['dog', 'cat']
+
+# Validate your model on a testset, this function will print a Confusion matrix & 
+# the loss and accuracy of the prediction done that was done
+predict(model_location='user/location/new_location/new_model.model', 
+               categories=categories, X=test_x, y=test_y)
+
 
 ```
 

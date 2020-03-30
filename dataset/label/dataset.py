@@ -11,7 +11,7 @@ from tqdm import tqdm
 import random
 import pickle
 
-
+# TODO, make one of colored photoes too.
 # load in the data, convert to grey scale and resize the images.
 # noinspection SpellCheckingInspection
 def label_img_dataset(datadir, categories, img_size, x_name, y_name):
@@ -44,8 +44,14 @@ def append_data(data, img_size, x_name, y_name):
     for features, label in data:
         x.append(features)
         y.append(label)
+        features = None
+        label = None
 
+    data.clear()
+    data = None
     x = np.array(x).reshape(-1, img_size, img_size, 1)
+    print(x.shape)
+    # x = np.array(x)
 
     export_dataset(x_name, x)
     export_dataset(y_name, y)
@@ -54,5 +60,5 @@ def append_data(data, img_size, x_name, y_name):
 # export the dataset as .pickle for later use
 def export_dataset(name, data):
     pickle_out = open(name + '.pickle', 'wb')
-    pickle.dump(data, pickle_out)
+    pickle.dump(data, pickle_out, protocol=4)
     pickle_out.close()

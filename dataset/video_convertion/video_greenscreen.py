@@ -1,8 +1,10 @@
 # Importing all necessary libraries
 import cv2
 import os
+import numpy as np
 from datetime import datetime
 from termcolor import colored
+import matplotlib.pyplot as plt
 
 
 # recurse over dirs, and extract frames from every video found
@@ -44,12 +46,37 @@ def extract_frames_from_video(videoSource, output, imgSize, CLASS_CATEGORIES):
             cv2.imwrite(outputDestination, frame)
 
             # manipulate extracted image
-            img_ = cv2.imread(outputDestination, cv2.IMREAD_ANYCOLOR)
-            gray = cv2.cvtColor(img_, cv2.COLOR_BGR2GRAY)
-            img_ = cv2.resize(gray, (imgSize, imgSize))
+            img_ = cv2.imread(outputDestination, cv2.COLOR_BGR2RGB)
+            img_copy = np.copy(img_)
+
+            # greenscreen removal happening here
+            lower_green = np.array([0, 255, 0])
+            upper_green = np.array([120, 255, 100])
+
+            # Masking
+            mask = cv2.inRange(img_copy, lower_green, upper_green)
+            masked_image = np.copy(img_copy)
+            masked_image[mask != 0] = [0, 0, 0]
+            plt.imshow(masked_image, cmap='gray')
+
+            # Change background image
+            # TODO: fix background image path
+            background_image = cv2.imread('/Users/william/Documents/gitHub/B20IT38/data_and_test_sets/processed/d_4/forest.jpeg')
+            background_image = cv2.cvtColor(background_image, cv2.COLOR_BGR2RGB)
+
+            # Crop background image to correct size
+            crop_background = background_image[0:1000, 0:1000]
+            crop_background[mask == 0] = [0, 0, 0]
+
+            final_image = crop_background + masked_image
+
+            # Convert to gray images
+            gray = cv2.cvtColor(final_image, cv2.COLOR_BGR2GRAY)
+            img_copy = cv2.resize(gray, (imgSize, imgSize))
 
             # overwrite extracted image with updated properties
-            cv2.imwrite(outputDestination, img=img_)
+            cv2.imwrite(outputDestination, img=img_copy)
+            plt.imshow(img_copy, cmap='gray')
 
             # increasing counter so that it will
             # correctly name the file with current frame counter
