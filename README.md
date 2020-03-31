@@ -83,7 +83,7 @@ in their new respective folder. The function call takes a input path for where o
 an output path to where it will create a new folder tree, an array containing all the folder names(categories) and the
 image size you want for the images.
 
-* **input_path:** is the directory where your video files are located.
+* **`input_path`:** is the directory where your video files are located.
 * **output_path:** is where the new images is to be saved.
 * **folders:** are the folders which the images is split between so you can easily label them later. (The folders must be
 created in advance by the user for now, update will come later where the function call will create the folders for you.)
