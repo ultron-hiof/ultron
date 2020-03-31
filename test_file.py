@@ -11,6 +11,6 @@ from plot.img import show_img
 
 label_img_dataset(datadir='/Users/william/Documents/gitHub/B20IT38/greenscreen_data/dataset_1_room',
                   categories=["forward", "right", "left", "backward", "stop", "still"], img_size=100,
-                  x_name='X', y_name='y')
+                  x_name='X', y_name='y', rgb=False)
 
 # show_linear_img(2, 'X.pickle', 100)

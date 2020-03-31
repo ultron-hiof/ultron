@@ -83,6 +83,12 @@ in their new respective folder. The function call takes a input path for where o
 an output path to where it will create a new folder tree, an array containing all the folder names(categories) and the
 image size you want for the images.
 
+* **input_path** is the directory where your video files are located.
+* **output_path** is where the new images is to be saved.
+* **folders** are the folders which the images is split between so you can easily label them later. (The folders must be
+created in advance by the user for now, update will come later where the function call will create the folders for you.)
+* **img_size** is the desired size of your image (For now the function creates a square image, update comming!)
+
 Example:
 
 ```python
@@ -93,11 +99,13 @@ video_to_images(input_path='/Users/dataset/location_of_multiple_folders',
                 folders=['Dog', 'Cat'], img_size=200)
 ```
 
-## Creating and using your Dataset
+## Creating and loading your own Dataset
 
 ### Label dataset
-**label_img_dataset()** is made so that you can easy convert a colored image dataset grayscale and resize it.
-Be sure to name the categories the same as the folders where the images is located.
+**label_img_dataset()** is made so that you can easy label a image dataset, either colored or in Grayscale.
+With just a simple function call, by the given location of the images, all your categories, image size, name of the new
+.pickle files that the function generates and if you want the image to be in RGB or in Grayscale, you will have a dataset
+ready to use!
 
 Example:
 ```python
@@ -108,7 +116,8 @@ from ultron.dataset.label.dataset import label_img_dataset
 categories = ['left', 'right', 'forward', 'backward', 'stop']
 
 # This function call will create features.pickle and labels.pickle
-label_img_dataset(datadir='user/dataset/', categories=categories, image_size=64, x_name='features', y_name='labels')
+label_img_dataset(datadir='user/dataset/', categories=categories, image_size=64, 
+                  x_name='features', y_name='labels', rgb=False)
 
 ```
 
@@ -117,7 +126,8 @@ label_img_dataset(datadir='user/dataset/', categories=categories, image_size=64,
 
 ### Load dataset
 **load_x_dataset()** and **load_y_dataset()** returns the specified dataset to X and the labels to y, ready to be used in your
-project
+project. This function takes in a .pickle file as its argument, and works perfectly with the **label_img_dataset()** function.
+By running this function you will have loaded you dataset with its features and labels ready to use!
 
 Example:
 ```python

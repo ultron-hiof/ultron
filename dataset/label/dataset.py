@@ -11,11 +11,19 @@ from tqdm import tqdm
 import random
 import pickle
 
-# TODO, make one of colored photoes too.
+# TODO: Describe RGB in readme and scenario
 # load in the data, convert to grey scale and resize the images.
 # noinspection SpellCheckingInspection
-def label_img_dataset(datadir, categories, img_size, x_name, y_name):
+
+
+def label_img_dataset(datadir, categories, img_size, x_name, y_name, rgb=None):
     training_data = []
+    color_mode = None
+
+    if rgb or rgb is None:
+        color_mode = cv2.COLOR_BGR2RGB
+    else:
+        color_mode = cv2.IMREAD_GRAYSCALE
 
     for cat in categories:
         path = os.path.join(datadir, cat)
@@ -23,7 +31,7 @@ def label_img_dataset(datadir, categories, img_size, x_name, y_name):
 
         for img in tqdm(os.listdir(path)):
             try:
-                img_array = cv2.imread(os.path.join(path, img), cv2.IMREAD_GRAYSCALE)
+                img_array = cv2.imread(os.path.join(path, img), color_mode)
                 resize_array = cv2.resize(img_array, (img_size, img_size))
                 training_data.append([resize_array, class_num])
             except OSError as e:
@@ -31,13 +39,15 @@ def label_img_dataset(datadir, categories, img_size, x_name, y_name):
             except Exception as e:
                 print("general exception", e, os.path.join(path, img))
 
-    append_data(training_data, img_size, x_name, y_name)
+    append_data(training_data, img_size, x_name, y_name, rgb)
 
 
 # Shuffle and append labels and features
 # then calls export_dataset()
-def append_data(data, img_size, x_name, y_name):
+def append_data(data, img_size, x_name, y_name, rgb):
+    color_channels = None
     random.shuffle(data)
+
     x = []
     y = []
 
@@ -48,10 +58,14 @@ def append_data(data, img_size, x_name, y_name):
         label = None
 
     data.clear()
-    data = None
-    x = np.array(x).reshape(-1, img_size, img_size, 1)
-    print(x.shape)
-    # x = np.array(x)
+    data = None # clear the data array to save system memory
+
+    if rgb:
+        color_channels = 3
+    else:
+        color_channels = 1
+
+    x = np.array(x).reshape(-1, img_size, img_size, color_channels)
 
     export_dataset(x_name, x)
     export_dataset(y_name, y)
