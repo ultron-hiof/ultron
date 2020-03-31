@@ -84,10 +84,10 @@ an output path to where it will create a new folder tree, an array containing al
 image size you want for the images.
 
 * **`input_path`:** is the directory where your video files are located.
-* **output_path:** is where the new images is to be saved.
-* **folders:** are the folders which the images is split between so you can easily label them later. (The folders must be
+* **`output_path`:** is where the new images is to be saved.
+* **`folders`:** are the folders which the images is split between so you can easily label them later. (The folders must be
 created in advance by the user for now, update will come later where the function call will create the folders for you.)
-* **img_size:** is the desired size of your image (For now the function creates a square image, update comming!)
+* **`img_size`:** is the desired size of your image (For now the function creates a square image, update comming!)
 
 Example:
 
@@ -107,12 +107,12 @@ With just a simple function call, by the given location of the images, all your 
 .pickle files that the function generates and if you want the image to be in RGB or in Grayscale, you will have a dataset
 ready to use!
 
-* **datadir:** is the directory where your image files are located.
-* **categories:** is what you have named your features and the corresponding folders
-* **image_size:** is the size you want you square image to be.
-* **x_name:** is the name of the features pickle file that the function produces.
-* **y_name:** is the name of the labels pickle file that the function produces.
-* **rgb:** is if you want your dataset to be RGB or Grayscale. Default when left out is RGB. To specify Grayscale
+* **`datadir`:** is the directory where your image files are located.
+* **`categories`:** is what you have named your features and the corresponding folders
+* **`image_size`:** is the size you want you square image to be.
+* **`x_name`:** is the name of the features pickle file that the function produces.
+* **`y_name`:** is the name of the labels pickle file that the function produces.
+* **`rgb`:** is if you want your dataset to be RGB or Grayscale. Default when left out is RGB. To specify Grayscale
 set rgb to False.
 
 Example:
@@ -138,11 +138,11 @@ project. This function takes in a .pickle file as its argument, and works perfec
 By running this function you will have loaded you dataset with its features and labels ready to use!
 
 **load_x_dataset()** is for loading your images/features.
-* **filepath:** is the location of your features .pickle file.
+* **`filepath`:** is the location of your features .pickle file.
 
 **load_y_dataset()** is for loading your labels for your images/features.
 
-* **filepath:** is the location of your labels .pickle file.
+* **`filepath`:** is the location of your labels .pickle file.
 
 set rgb to False.
 
