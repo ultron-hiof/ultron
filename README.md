@@ -117,7 +117,7 @@ ready to use!
 * **`rgb`:** is if you want your dataset to be RGB or Grayscale. Default when left out is RGB. To specify Grayscale
 set rgb to False.
 
-Example:
+#### Example code:
 ```python
 from ultron.dataset.label.dataset import label_img_dataset
 
@@ -149,7 +149,7 @@ By running this function you will have loaded you dataset with its features and 
 
 set rgb to False.
 
-Example:
+#### Example code:
 ```python
 from ultron.dataset.load.img.dataset import load_x_dataset, load_y_dataset
 
@@ -176,7 +176,7 @@ shown below code snippet.
 
 set rgb to False.
 
-Example:
+#### Example code:
 ```python
 from ultron.plot.graph import plot_model
 
@@ -199,7 +199,7 @@ giving your model to train on.
 * **`filepath`:** is the path to where your features .pickle file is located.
 * **`img_size`:** is the size of the image you want to plot.
 
-Example:
+#### Example code:
 ```python
 from ultron.plot.img import show_linear_img
 
@@ -240,7 +240,7 @@ model.summary()
 
 ```
 
-Example where user specify all parameters:
+#### Example where user specify all parameters:
 ```python
 from ultron.model.create.conv import create_model
 from ultron.load.img.dataset import load_x_dataset, load_y_dataset
@@ -302,7 +302,7 @@ files in your project directory.
 - You will need to have a dataset ready to be able to use the model search!
 ```
 
-Example with dataset and shape:
+#### Example with dataset and shape:
 ```python
 from ultron.model.search.conv2d_search import model_search
 from ultron.load.img.dataset import load_x_dataset, load_y_dataset
@@ -313,7 +313,7 @@ y = load_y_dataset(filepath='user/project/file')
 
 model_search(shape=X.shape[1:], X=X, y=y)
 ```
-Example to network search with all parameters:
+#### Example to network search with all parameters:
 ```python
 from ultron.model.search.conv2d_search import model_search
 from ultron.load.img.dataset import load_x_dataset, load_y_dataset
@@ -328,7 +328,7 @@ model_search(conv_layers=[1, 2, 3], layer_sizes=[32, 64, 128], activation_layer=
 ```
 
 ### Fully Connected feed forward model search
-Example with dataset and shape:
+#### Example with dataset and shape:
 ```python
 from ultron.model.search.ff_search import model_search
 from ultron.load.img.dataset import load_x_dataset, load_y_dataset
@@ -342,7 +342,7 @@ model_search(shape=X.shape[1:], X=X, y=y)
 ```
 
 
-Example to network search with all parameters:
+#### Example to network search with all parameters:
 ```python
 from ultron.model.search.ff_search import model_search
 from ultron.load.img.dataset import load_x_dataset, load_y_dataset
@@ -361,6 +361,8 @@ model_search(dense_layers=[1, 2, 3], layer_sizes=[32, 64, 128], activation_layer
 **train_model()** function call will load your previously saved model and train it with the given dataset specified by 
 the user for the amount of time specified. The function returns the history object given by the **fit()** function call
 so that the user can plot the training & validation accuracy & loss.
+
+#### Example code:
 
 ```python
 from ultron.model.training.retrain_model import train_model
@@ -387,6 +389,7 @@ plot_model(history=history, metric='loss', name='NAME', save_location='models/mo
 **validate_model()** runs two predictions on your model with the specified dataset given by 
 the user. The function prints a Confusion matrix and the loss and accuracy of the model on the given dataset.
 
+#### Example code:
 ```python
 from ultron.model.training.retrain_model import train_model
 from ultron.load.img.dataset import load_x_dataset, load_y_dataset
