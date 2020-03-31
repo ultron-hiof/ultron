@@ -73,7 +73,7 @@ Now try benchmarking MobileNet:
 ```bash
 plaidbench keras mobilenet
 ```
-* You are now good to go : ) 
+* You are now good to go :smile: 
 
 # Use cases
 
