@@ -114,8 +114,7 @@ ready to use!
 * **`image_size`:** is the size you want you square image to be.
 * **`x_name`:** is the name of the features pickle file that the function produces.
 * **`y_name`:** is the name of the labels pickle file that the function produces.
-* **`rgb`:** is if you want your dataset to be RGB or Grayscale. Default when left out is RGB. To specify Grayscale
-set rgb to False.
+* **`rgb`:** is if you want your dataset to be RGB or Grayscale. Default when left out is RGB. To specify Grayscale set rgb to False.
 
 #### Example code:
 ```python
