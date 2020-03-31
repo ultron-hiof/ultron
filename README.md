@@ -12,21 +12,31 @@ The framework the group have in mind is made to make working with machine learni
 Where the framework we make will make the users save time. Where the library with the functions 
 is premade, and the users do not have to make them beforehand.
 
+Ultron is very much aimed at developers who has not work that much or are brand new to the field. But Ultron contains some
+nice to have tools that is good even for experienced users who wants to shorten down work times and write fewer lines of code.
+
+
 ## Aim of the project
 
-* Short down work times
+* Short down work times.
 * Low Barrier to Entry where users can choose the functionality they want.
-* Make it easier to work with dataset
-* Resize and greyscale
-* Picture sequence
-* Label dataset
-* Creating networks
-* Searching for networks 
-* Use network in a basic way
+* Make it easier to create and work with dataset.
+* Make image pre-processing easier.
+* Create picture sequences from videos and images for datasets.
+* easily create your own image dataset.
+* Creating basic machine learning models.
+* Neural network searching, find what network architecture fits best for your project.
+* Retraining your models with a simple function call.
+* Test your model easy with a simple function call, that gives you the information needed to make your model predictions better
 
-Background 
-The group consists of Fredrik Lauritzen a 2nd year informatics student and William Svea-Lochert a 3rd year informatics 
-student. Both have an interest in machine learning and wants to know more about it.
+
+### Background 
+The group consists of:
+* Fredrik Lauritzen a 2nd year informatics student @Hiof.
+* William Svea-Lochert a 3rd year informatics @ Hiof
+
+We have an interest in machine learning and want to learn more about it, how it works and how to make it easier for someone that
+has never tried developing it before. 
 
 The background for this project is because William is currently working with his Bachelor thesis, where he is 
 actively working machine learning and creating datasets. We wanted to make the process of working with 
@@ -34,12 +44,19 @@ machine learning easier, by having a framework that is a collection of some basi
 
 
 ## Other frameworks Ultron is built on top of
-Framework for making machine learning easier. This framework utilizes:
+Ultron utilizes these frameworks:
 * matplotlib
 * OpenCV
 * tqdm
 * PlaidML
 * Keras
+* pickle
+* sty
+* termcolor
+
+Ultron uses the flexsible platforms of Keras and PlaidML. By using PlaidML you are able to train on basically any GPU, 
+and are you are not restricted to only use PlaidML. The models produces are plug-and-play with other machine learning 
+frameworks like TensorFlow.
 
 ## Installation of needed packages
 
