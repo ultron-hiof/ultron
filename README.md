@@ -83,13 +83,14 @@ in their new respective folder. The function call takes a input path for where o
 an output path to where it will create a new folder tree, an array containing all the folder names(categories) and the
 image size you want for the images.
 
+#### Parameters
 * **`input_path`:** is the directory where your video files are located.
 * **`output_path`:** is where the new images is to be saved.
 * **`folders`:** are the folders which the images is split between so you can easily label them later. (The folders must be
 created in advance by the user for now, update will come later where the function call will create the folders for you.)
 * **`img_size`:** is the desired size of your image (For now the function creates a square image, update comming!)
 
-Example:
+#### Example code:
 
 ```python
 from ultron.dataset.video_convertion.video import video_to_images
@@ -107,6 +108,7 @@ With just a simple function call, by the given location of the images, all your 
 .pickle files that the function generates and if you want the image to be in RGB or in Grayscale, you will have a dataset
 ready to use!
 
+#### Parameters
 * **`datadir`:** is the directory where your image files are located.
 * **`categories`:** is what you have named your features and the corresponding folders
 * **`image_size`:** is the size you want you square image to be.
@@ -138,10 +140,11 @@ project. This function takes in a .pickle file as its argument, and works perfec
 By running this function you will have loaded you dataset with its features and labels ready to use!
 
 **load_x_dataset()** is for loading your images/features.
+#### Parameters
 * **`filepath`:** is the location of your features .pickle file.
 
 **load_y_dataset()** is for loading your labels for your images/features.
-
+#### Parameters
 * **`filepath`:** is the location of your labels .pickle file.
 
 set rgb to False.
@@ -165,6 +168,7 @@ The function takes in the history object that is created by the fit function pro
 model. These function calls will create two images acc.png and loss.png in the given location. Image is 
 shown below code snippet.
 
+#### Parameters
 * **`history`:** is the history object produced by Keras own fit function.
 * **`metric`:** is the metric you want to plot, either accuracy or loss.
 * **`name`:** is the title of for the plot.
@@ -187,16 +191,20 @@ plot_model(history=history, metric='loss', name='my_model_loss', save_location='
 
 
 ### Plot image from your dataset
-**show_img()** is a function call for the users of a fully connected neural network users. 
-This function will show an image from your dataset. This is when your images has been converted to a
-linear image this means that the image is on one axis (1x…)
+**show_img()** This function will show an image from your dataset. This is useful for you to see what info you are
+giving your model to train on.
+
+#### Parameters
+* **`index`:** is the index of what image you want to plot in your dataset.
+* **`filepath`:** is the path to where your features .pickle file is located.
+* **`img_size`:** is the size of the image you want to plot.
 
 Example:
 ```python
 from ultron.plot.img import show_linear_img
 
 # Plot the image in the given index and show it to the user
-show_linear_img(index=43, filepath='user/project/dataset.pickle', img_size=64)
+show_img(index=43, filepath='user/project/dataset.pickle', img_size=64)
 
 ```
 ![acc of model](/resources_git/doggo.png)
@@ -206,7 +214,15 @@ show_linear_img(index=43, filepath='user/project/dataset.pickle', img_size=64)
 ## Create Conv2D model
 
 **create_model()** is a function for create a Conv2D model, this function can take in multiple parameters or just one to
-create a model that the user can train for their use.
+create a model that the user can train for their use. This is a general model creation tool, for basic models so you as
+the user can easier learn how to make a model. 
+
+If you choose to fill in more parameters you can make a slightly more advanced model, but at the moment still a fairly 
+basic model.
+
+#### Parameters
+* **`shape`:** is the shape of the data that the model is receiving, if you choose to use Ultron's **load_x_dataset()**
+function call, it will in most cases work with only specifying the shape as `X.shape[1:]`
 
 Example where user specify only the input shape parameter:
 ```python
@@ -221,6 +237,7 @@ y = load_y_dataset(filepath='user/project/file')
 model = create_model(shape=X.shape[1:])
 model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 model.summary()
+
 ```
 
 Example where user specify all parameters:
@@ -232,9 +249,13 @@ X = load_x_dataset(filepath='user/project/file')
 y = load_y_dataset(filepath='user/project/file')
 
 # Creates the model with all parameters given by the user
-model = create_model(shape=X.shape[1:], conv_layers=2, conv_layer_size=32, activation_layer='relu', dense_layers=1, dense_layer_size=512, output_classes=2, output_activation='softmax')
+model = create_model(shape=X.shape[1:], conv_layers=2, conv_layer_size=32, 
+                     activation_layer='relu', dense_layers=1, dense_layer_size=512, 
+                     output_classes=2, output_activation='softmax')
+                     
 model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 model.summary()
+
 ```
 
 ## Create a fully connected feed forward model
