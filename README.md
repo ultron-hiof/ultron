@@ -180,8 +180,8 @@ from ultron.plot.graph import plot_model
 # placeholder (fit in the function call of training a model with keras)
 history = model.fit()
 
-plot_model(history=history, metric='acc', name='my_model_acc', save_location='models/model_name/acc.png')
-plot_model(history=history, metric='loss', name='my_model_loss', save_location='models/model_name/loss.png')
+plot_model(history=history, metric='acc', name='model_acc', save_location='models/acc.png')
+plot_model(history=history, metric='loss', name='model_loss', save_location='models/loss.png')
 
 ```
 ![acc of model](/resources_git/acc.png)
@@ -220,8 +220,15 @@ basic model.
 #### Parameters
 * **`shape`:** is the shape of the data that the model is receiving, if you choose to use Ultron's **load_x_dataset()**
 function call, it will in most cases work with only specifying the shape as `X.shape[1:]`
+* **`conv_layers`:** how many Conv2D layers that is going to be in the model.
+* **`conv_layer_size`:** how big the Conv2D layers should be.
+* **`activation_layer`:** activation layers for the model.
+* **`dense_layers`:** how many Dense layers there is going to be in the model.
+* **`dense_layer_size`:** size of the Dense layers.
+* **`output_classes`:** how many labels does your dataset have.
+* **`output_activation`:** activation layer for the output layer in the neural network.
 
-Example where user specify only the input shape parameter:
+#### Example where user specify only the input shape parameter:
 ```python
 from ultron.model.create.conv import create_model
 from ultron.load.img.dataset import load_x_dataset, load_y_dataset
@@ -255,12 +262,25 @@ model.summary()
 
 ```
 
-## Create a fully connected feed forward model
+## Create a fully connected model
 
 **create_model()** is a function for create a fully connected feed forward model, this function can take in multiple parameters or just one to
 create a model that the user can train for their use.
 
-Example where user specify only the input shape parameter:
+```diff
+- To use a fully connected model your dataset must be reshaped to 1 axsis!
+```
+
+#### Parameters
+* **`shape`:** is the shape of the data that the model is receiving, if you choose to use Ultron's **load_x_dataset()**
+function call, it will in most cases work with only specifying the shape as `X.shape[1:]`
+* **`dense_layers`:** how many Dense layers there is going to be in the model.
+* **`dense_layer_size`:** size of the Dense layers.
+* **`activation_layer`:** activation layers for the model.
+* **`output_classes`:** how many labels does your dataset have.
+* **`output_activation`:** activation layer for the output layer in the neural network.
+
+#### Example where user specify only the input shape parameter:
 ```python
 from ultron.model.create.fully_connected import create_model
 from ultron.load.img.dataset import load_x_dataset, load_y_dataset
@@ -284,22 +304,37 @@ X = load_x_dataset(filepath='user/project/file')
 y = load_y_dataset(filepath='user/project/file')
 
 # Creates the model with all parameters given by the user
-model = create_model(shape=X.shape[1:], dense_layers=2, dense_layer_size=512, activation_layer='relu', output_classes=2, output_activation='softmax')
+model = create_model(shape=X.shape[1:], dense_layers=2, dense_layer_size=512, 
+                     activation_layer='relu', output_classes=2, output_activation='softmax')
+
 model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 model.summary()
 ```
 ## Network search
 ### Conv2d model search
 **model_search()** The usages for this function is to find the model that fits your project the best by training 
-multiple models and using the plot functionality of this framework to show you the results. The graphs will be saved to multiple
-files in your project directory.
+multiple models and using the plot functionality of this framework to show you the results. The graphs will be saved as multiple
+files in your project directory so that you can compare the results.
+
+#### Parameters
+* **`shape`:** is the shape of the data that the model is receiving, if you choose to use Ultron's **load_x_dataset()**
+function call, it will in most cases work with only specifying the shape as `X.shape[1:]`
+* **`conv_layers`:** array with different amount of Conv2D layers that is going to be in the models.
+* **`conv_layer_size`:** array with different sizes for how big the Conv2D layers should be.
+* **`activation_layer`:** activation layers for the model.
+* **`dense_layers`:** array with different amount of how many Dense layers there is going to be in the models.
+* **`output_classes`:** how many labels does your dataset have.
+* **`output_activation`:** activation layer for the output layer in the neural network.
+* **`X`:** your features .pickle file.
+* **`y`:** your labels .pickle file.
 
 
 ```diff
 - You will need to have a dataset ready to be able to use the model search!
 ```
 
-#### Example with dataset and shape:
+#### Example with only dataset and shape:
+By calling **model_search()** with only the shape and the dataset, the function call will stick to default values.
 ```python
 from ultron.model.search.conv2d_search import model_search
 from ultron.load.img.dataset import load_x_dataset, load_y_dataset
@@ -310,7 +345,7 @@ y = load_y_dataset(filepath='user/project/file')
 
 model_search(shape=X.shape[1:], X=X, y=y)
 ```
-#### Example to network search with all parameters:
+#### Example of Conv2D network search with all parameters:
 ```python
 from ultron.model.search.conv2d_search import model_search
 from ultron.load.img.dataset import load_x_dataset, load_y_dataset
@@ -324,8 +359,21 @@ model_search(conv_layers=[1, 2, 3], layer_sizes=[32, 64, 128], activation_layer=
 
 ```
 
-### Fully Connected feed forward model search
-#### Example with dataset and shape:
+### Fully Connected model search
+
+#### Parameters
+* **`shape`:** is the shape of the data that the model is receiving, if you choose to use Ultron's **load_x_dataset()**
+function call, it will in most cases work with only specifying the shape as `X.shape[1:]`
+* **`dense_layers`:** array with different amount of how many Dense layers there is going to be in the models.
+* **`activation_layer`:** activation layers for the model.
+* **`output_classes`:** how many labels does your dataset have.
+* **`output_activation`:** activation layer for the output layer in the neural network.
+* **`X`:** your features .pickle file.
+* **`y`:** your labels .pickle file.
+
+#### Example with only dataset and shape:
+By calling **model_search()** with only the shape and the dataset, the function call will stick to default values.
+
 ```python
 from ultron.model.search.ff_search import model_search
 from ultron.load.img.dataset import load_x_dataset, load_y_dataset
@@ -339,7 +387,7 @@ model_search(shape=X.shape[1:], X=X, y=y)
 ```
 
 
-#### Example to network search with all parameters:
+#### Example of fully connected network search with all parameters:
 ```python
 from ultron.model.search.ff_search import model_search
 from ultron.load.img.dataset import load_x_dataset, load_y_dataset
@@ -348,8 +396,9 @@ from ultron.load.img.dataset import load_x_dataset, load_y_dataset
 X = load_x_dataset(filepath='user/project/file')
 y = load_y_dataset(filepath='user/project/file')
 
-model_search(dense_layers=[1, 2, 3], layer_sizes=[32, 64, 128], activation_layer='relu', shape=shape,
-                     output_classes=2, output_activation='softmax', X=X, y=y)
+model_search(dense_layers=[1, 2, 3], layer_sizes=[32, 64, 128], 
+             activation_layer='relu', shape=shape, output_classes=2, 
+             output_activation='softmax', X=X, y=y)
 
 ```
 
@@ -358,6 +407,16 @@ model_search(dense_layers=[1, 2, 3], layer_sizes=[32, 64, 128], activation_layer
 **train_model()** function call will load your previously saved model and train it with the given dataset specified by 
 the user for the amount of time specified. The function returns the history object given by the **fit()** function call
 so that the user can plot the training & validation accuracy & loss.
+
+#### Parameters
+* **`X`:** your features .pickle file.
+* **`y`:** your labels .pickle file.
+* **`epoches`:** how many epoches the model should train for.
+* **`val_split`:** how many percent of the dataset should be used for validation in each epoch of training. 
+* **`model`:** the model you would like to train again.
+* **`save_location`:** is where you would like to save the new model. (if you want to save it in the project dir
+only specify a name for the new model.)
+
 
 #### Example code:
 
@@ -376,15 +435,20 @@ history = train_model(X=X, y=y, epoches=100, val_split=0.3, model='user/location
                       save_location='user/location/new_location/new_model')
 
 # plotting the training and validation loss & accuracy        
-plot_model(history=history, metric='acc', name='NAME', save_location='models/model_name/acc.png')
-plot_model(history=history, metric='loss', name='NAME', save_location='models/model_name/loss.png')
+plot_model(history=history, metric='acc', name='NAME', save_location='models/acc.png')
+plot_model(history=history, metric='loss', name='NAME', save_location='models/loss.png')
 
 ```
 
 ## Test your model with testdata
 
-**validate_model()** runs two predictions on your model with the specified dataset given by 
-the user. The function prints a Confusion matrix and the loss and accuracy of the model on the given dataset.
+**predict()** runs two predictions on your model with the specified dataset given by 
+the user. The function prints a Confusion matrix, the loss and accuracy of the model on the given dataset.
+
+* **`X`:** your features .pickle file.
+* **`y`:** your labels .pickle file.
+* **`model_location`:** specify your .model file.
+* **`categories`:** string array of your categories/labels. 
 
 #### Example code:
 ```python
