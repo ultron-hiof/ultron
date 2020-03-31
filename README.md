@@ -165,22 +165,29 @@ The function takes in the history object that is created by the fit function pro
 model. These function calls will create two images acc.png and loss.png in the given location. Image is 
 shown below code snippet.
 
+* **`history`:** is the history object produced by Keras own fit function.
+* **`metric`:** is the metric you want to plot, either accuracy or loss.
+* **`name`:** is the title of for the plot.
+* **`save_location`:** is where you want to save the images of the plot.
+
+set rgb to False.
+
 Example:
 ```python
 from ultron.plot.graph import plot_model
 
-# placeholder (fit in the function call of training a model in keras)
+# placeholder (fit in the function call of training a model with keras)
 history = model.fit()
 
-plot_model(history=history, metric='acc', name=NAME, save_location='models/model_name/acc.png')
-plot_model(history=history, metric='loss', name=NAME, save_location='models/model_name/loss.png')
+plot_model(history=history, metric='acc', name='my_model_acc', save_location='models/model_name/acc.png')
+plot_model(history=history, metric='loss', name='my_model_loss', save_location='models/model_name/loss.png')
 
 ```
 ![acc of model](/resources_git/acc.png)
 
 
 ### Plot image from your dataset
-**show_linear_img()** is a function call for the users of a fully connected neural network users. 
+**show_img()** is a function call for the users of a fully connected neural network users. 
 This function will show an image from your dataset. This is when your images has been converted to a
 linear image this means that the image is on one axis (1x…)
 
@@ -190,17 +197,6 @@ from ultron.plot.img import show_linear_img
 
 # Plot the image in the given index and show it to the user
 show_linear_img(index=43, filepath='user/project/dataset.pickle', img_size=64)
-
-```
-**show_img()** is a function call for the users of a Conv2d model, which uses normal images. The function
-call will plot an image from your dataset with the given index.
-
-Example:
-```python
-from ultron.plot.img import show_img
-
-# Plot the image in the given index from the dataset set by the user, and show it to the user
-show_img(index=43, filepath='user/project/dataset.pickle')
 
 ```
 ![acc of model](/resources_git/doggo.png)
