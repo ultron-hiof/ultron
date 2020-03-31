@@ -27,7 +27,7 @@ nice to have tools that is good even for experienced users who wants to shorten 
 * Creating basic machine learning models.
 * Neural network searching, find what network architecture fits best for your project.
 * Retraining your models with a simple function call.
-* Test your model easy with a simple function call, that gives you the information needed to make your model predictions better
+* Test your model easy with a simple function call, that gives you the information needed to make your model predictions better.
 
 
 ### Background 
