@@ -146,8 +146,6 @@ By running this function you will have loaded you dataset with its features and 
 #### Parameters
 * **`filepath`:** is the location of your labels .pickle file.
 
-set rgb to False.
-
 #### Example code:
 ```python
 from ultron.dataset.load.img.dataset import load_x_dataset, load_y_dataset
