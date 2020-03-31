@@ -483,7 +483,7 @@ predict(model_location='user/location/new_location/new_model.model',
 
 ## Authors
 - William Svea-Lochert
-- Fredrik Lauritzen
+- Fredrik Lauritzen :neckbeard: 
 
  
 
