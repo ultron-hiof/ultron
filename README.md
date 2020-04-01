@@ -13,7 +13,7 @@ Where the framework we make will make the users save time. Where the library wit
 is premade, and the users do not have to make them beforehand.
 
 Ultron is very much aimed at developers who has not work that much or are brand new to the field. But Ultron contains some
-nice to have tools that is good even for experienced users who wants to shorten down work times and write fewer lines of code.
+nice to have tools that is good even for experienced developers who wants to shorten down work times and write fewer lines of code.
 
 
 ## Aim of the project
@@ -206,7 +206,7 @@ plot_model(history=history, metric='loss', name='model_loss', save_location='mod
 
 ### Plot image from your dataset
 **show_img()** This function will show an image from your dataset. This is useful for you to see what info you are
-giving your model to train on.
+giving your model to train on. This function is mainly used to verify if your data is correct.
 
 #### Parameters
 * **`index`:** is the index of what image you want to plot in your dataset.
@@ -379,8 +379,7 @@ model_search(conv_layers=[1, 2, 3], layer_sizes=[32, 64, 128], activation_layer=
 ### Fully Connected model search
 
 #### Parameters
-* **`shape`:** is the shape of the data that the model is receiving, if you choose to use Ultron's **load_x_dataset()**
-function call, it will in most cases work with only specifying the shape as `X.shape[1:]`
+* **`shape`:** is the shape of the data that the model is receiving, if you choose to use Ultron's **load_x_dataset()** function call, it will in most cases work with only specifying the shape as `X.shape[1:]`
 * **`dense_layers`:** array with different amount of how many Dense layers there is going to be in the models.
 * **`activation_layer`:** activation layers for the model.
 * **`output_classes`:** how many labels does your dataset have.
