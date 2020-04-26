@@ -215,7 +215,7 @@ giving your model to train on. This function is mainly used to verify if your da
 
 #### Example code:
 ```python
-from ultron.plot.img import show_linear_img
+from ultron.plot.img import show_img
 
 # Plot the image in the given index and show it to the user
 show_img(index=43, filepath='user/project/dataset.pickle', img_size=64)
