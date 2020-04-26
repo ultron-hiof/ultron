@@ -257,6 +257,10 @@ y = load_y_dataset(filepath='user/project/file')
 # Default output is 1 category.
 model = create_model(shape=X.shape[1:])
 model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+
+model.fit(x=X, y=y, epochs=10, validation_split=0.3)
+model.save('model_name.model')
+
 model.summary()
 
 ```
@@ -275,6 +279,10 @@ model = create_model(shape=X.shape[1:], conv_layers=2, conv_layer_size=32,
                      output_classes=2, output_activation='softmax')
                      
 model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+
+model.fit(x=X, y=y, epochs=10, validation_split=0.3)
+model.save('model_name.model')
+
 model.summary()
 
 ```
@@ -308,7 +316,12 @@ y = load_y_dataset(filepath='user/project/file')
 # Creates a 'default' model with the input shape given by the user.
 # Default output is 1 category.
 model = create_model(shape=X.shape[1:])
+
 model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+
+model.fit(x=X, y=y, epochs=10, validation_split=0.3)
+model.save('model_name.model')
+
 model.summary()
 ```
 
@@ -325,6 +338,10 @@ model = create_model(shape=X.shape[1:], dense_layers=2, dense_layer_size=512,
                      activation_layer='relu', output_classes=2, output_activation='softmax')
 
 model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+
+model.fit(x=X, y=y, epochs=10, validation_split=0.3)
+model.save('model_name.model')
+
 model.summary()
 ```
 ## Network search
