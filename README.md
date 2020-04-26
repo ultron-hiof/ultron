@@ -435,7 +435,7 @@ model_search(dense_layers=[1, 2, 3], layer_sizes=[32, 64, 128],
 
 ```
 
-## retrain your model
+## Retrain your model
 
 **train_model()** function call will load your previously saved model and train it with the given dataset specified by 
 the user for the amount of time specified. The function returns the history object given by the **fit()** function call
