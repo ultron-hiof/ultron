@@ -189,7 +189,6 @@ shown below code snippet.
 * **`name`:** is the title of for the plot.
 * **`save_location`:** is where you want to save the images of the plot.
 
-set rgb to False.
 
 #### Example code:
 ```python
