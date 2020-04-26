@@ -117,6 +117,7 @@ video_to_images(input_path='/Users/dataset/location_of_multiple_folders',
                 folders=['Dog', 'Cat'], img_size=200)
 ```
 
+
 ## Creating and loading your own Dataset
 
 ### Label dataset
