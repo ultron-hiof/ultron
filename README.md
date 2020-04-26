@@ -128,7 +128,7 @@ ready to use!
 #### Parameters
 * **`datadir`:** is the directory where your image files are located.
 * **`categories`:** is what you have named your features and the corresponding folders
-* **`image_size`:** is the size you want you square image to be.
+* **`img_size`:** is the size you want you square image to be.
 * **`x_name`:** is the name of the features pickle file that the function produces.
 * **`y_name`:** is the name of the labels pickle file that the function produces.
 * **`rgb`:** is if you want your dataset to be RGB or Grayscale. Default when left out is RGB. To specify Grayscale set rgb to False.
@@ -142,7 +142,7 @@ from ultron.dataset.label.dataset import label_img_dataset
 categories = ['left', 'right', 'forward', 'backward', 'stop']
 
 # This function call will create features.pickle and labels.pickle
-label_img_dataset(datadir='user/dataset/', categories=categories, image_size=64, 
+label_img_dataset(datadir='user/dataset/', categories=categories, img_size=64, 
                   x_name='features', y_name='labels', rgb=False)
 
 ```
