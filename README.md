@@ -464,7 +464,7 @@ y = load_y_dataset(filepath='user/project/file')
 
 # This function call will train a model given by the user and return the 
 # history obj from the fit() function call
-history = train_model(X=X, y=y, epoches=100, val_split=0.3, model='user/location/model.model', 
+history = train_model(X=X, y=y, epochs=100, val_split=0.3, model='user/location/model.model', 
                       save_location='user/location/new_location/new_model')
 
 # plotting the training and validation loss & accuracy        
@@ -496,7 +496,7 @@ y = load_y_dataset(filepath='user/project/file')
 
 # This function call will train a model given by the user and return the 
 # history obj from the fit() function call
-history = train_model(X=X, y=y, epoches=100, val_split=0.3, model='user/location/model.model', 
+history = train_model(X=X, y=y, epochs=100, val_split=0.3, model='user/location/model.model', 
                       save_location='user/location/new_location/new_model')
 
 # Datasets used for testing
