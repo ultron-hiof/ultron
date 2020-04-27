@@ -482,6 +482,7 @@ the user. The function prints a Confusion matrix, the loss and accuracy of the m
 * **`y`:** your labels .pickle file.
 * **`model_location`:** specify your .model file.
 * **`categories`:** string array of your categories/labels. 
+* **`batch_size`:** if you for example say equal to 100 it will use the first 1 - 100 samples from the training dataset.
 
 #### Example code:
 ```python
