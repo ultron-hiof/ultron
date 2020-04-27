@@ -449,6 +449,7 @@ so that the user can plot the training & validation accuracy & loss.
 * **`model`:** the model you would like to train again.
 * **`save_location`:** is where you would like to save the new model. (if you want to save it in the project dir
 only specify a name for the new model.)
+* **`batch_size`:** how big sample size you want to make.
 
 
 #### Example code:
@@ -464,7 +465,7 @@ y = load_y_dataset(filepath='user/project/file')
 
 # This function call will train a model given by the user and return the 
 # history obj from the fit() function call
-history = train_model(X=X, y=y, epochs=100, val_split=0.3, model='user/location/model.model', 
+history = train_model(X=X, y=y, epochs=100, val_split=0.3, batch_size=100 model='user/location/model.model', 
                       save_location='user/location/new_location/new_model')
 
 # plotting the training and validation loss & accuracy        
