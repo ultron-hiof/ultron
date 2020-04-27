@@ -449,7 +449,7 @@ so that the user can plot the training & validation accuracy & loss.
 * **`model`:** the model you would like to train again.
 * **`save_location`:** is where you would like to save the new model. (if you want to save it in the project dir
 only specify a name for the new model.)
-* **`batch_size`:** how big sample size you want to make.
+* **`batch_size`:** The batch size is a number of samples processed before the model is updated.
 
 
 #### Example code:
