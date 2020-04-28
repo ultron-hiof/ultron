@@ -3,6 +3,9 @@
 # Date written: 01.03.2020
 # test with testset and write to log
 # ------------------------------------------------------- #
+
+os.environ["KERAS_BACKEND"] = "plaidml.keras.backend"
+
 from keras.models import load_model
 from matrix.ConfusionMatrix import ConfusionMatrix
 from termcolor import colored
