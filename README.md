@@ -449,7 +449,7 @@ so that the user can plot the training & validation accuracy & loss.
 * **`model`:** the model you would like to train again.
 * **`save_location`:** is where you would like to save the new model. (if you want to save it in the project dir
 only specify a name for the new model.)
-* **`batch_size`:** The batch size is a number of samples processed before the model is updated.
+* **`batch_size`:** The batch size is a number of samples number of training examples utilized in one iteration.
 
 
 #### Example code:
@@ -483,7 +483,7 @@ the user. The function prints a Confusion matrix, the loss and accuracy of the m
 * **`y`:** your labels .pickle file.
 * **`model_location`:** specify your .model file.
 * **`categories`:** string array of your categories/labels. 
-* **`batch_size`:** if you for example say equal to 100 it will use the first 1 - 100 samples from the training dataset.
+* **`batch_size`:** The batch size is a number of samples number of training examples utilized in one iteration.
 
 #### Example code:
 ```python
