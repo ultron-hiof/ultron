@@ -248,7 +248,7 @@ function call, it will in most cases work with only specifying the shape as `X.s
 #### Example where user specify only the input shape parameter:
 ```python
 from ultron.model.create.conv import create_model
-from ultron.load.img.dataset import load_x_dataset, load_y_dataset
+from ultron.dataset.load.img.dataset import load_x_dataset, load_y_dataset
 
 X = load_x_dataset(filepath='user/project/file')
 y = load_y_dataset(filepath='user/project/file')
