@@ -3,6 +3,7 @@
 # Date written: 01.03.2020
 # test with testset and write to log
 # ------------------------------------------------------- #
+import os
 
 os.environ["KERAS_BACKEND"] = "plaidml.keras.backend"
 

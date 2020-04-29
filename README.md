@@ -488,7 +488,7 @@ the user. The function prints a Confusion matrix, the loss and accuracy of the m
 #### Example code:
 ```python
 from ultron.model.training.retrain_model import train_model
-from ultron.dataset.load.img.dataset import load_x_dataset, load_y_datasett
+from ultron.dataset.load.img.dataset import load_x_dataset, load_y_dataset
 from ultron.plot.graph import plot_model
 from ultron.model.test_model.validate_model import predict
 
