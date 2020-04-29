@@ -8,7 +8,7 @@ import os
 os.environ["KERAS_BACKEND"] = "plaidml.keras.backend"
 
 from keras.models import load_model
-from matrix.ConfusionMatrix import ConfusionMatrix
+from ultron.matrix.ConfusionMatrix import ConfusionMatrix
 from termcolor import colored
 
 
