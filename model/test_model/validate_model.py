@@ -12,7 +12,6 @@ from ultron.matrix.ConfusionMatrix import ConfusionMatrix
 from termcolor import colored
 
 
-# TODO: write about in git read me
 def predict(model_location, categories, X, y):
 
     List = categories  # categories

@@ -11,7 +11,6 @@ from tqdm import tqdm
 import random
 import pickle
 
-# TODO: Describe RGB in readme and scenario
 # load in the data, convert to grey scale and resize the images.
 # noinspection SpellCheckingInspection
 

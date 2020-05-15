@@ -3,7 +3,6 @@ from sty import fg
 from typing import List
 
 
-# TODO: write about in git readme
 class ConfusionMatrix:
 
     def __init__(self, categories: List = []):
